@@ -4,5 +4,7 @@ export interface Schedule {
   place: string,
   type: string,
   subject: string,
-  group: string
+  group: string,
+  faculty: string,
+  course: string
 }
