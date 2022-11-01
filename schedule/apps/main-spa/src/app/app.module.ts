@@ -17,6 +17,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import * as fromContacts from './state/contacts/contacts.reducer';
 import { ContactsEffects } from './state/contacts/contacts.effects';
+import * as fromSchedules from './state/schedules/schedules.reducer';
+import { SchedulesEffects } from './state/schedules/schedules.effects';
 
 @NgModule({
   declarations: [AppComponent, MainNavCoreComponent],
@@ -47,6 +49,11 @@ import { ContactsEffects } from './state/contacts/contacts.effects';
       fromContacts.contactsReducer
     ),
     EffectsModule.forFeature([ContactsEffects]),
+    StoreModule.forFeature(
+      fromSchedules.SCHEDULES_FEATURE_KEY,
+      fromSchedules.schedulesReducer
+    ),
+    EffectsModule.forFeature([SchedulesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
