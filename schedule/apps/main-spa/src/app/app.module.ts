@@ -10,10 +10,21 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterOutlet} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, MainNavCoreComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatButtonModule, RouterOutlet],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+    RouterOutlet,
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
