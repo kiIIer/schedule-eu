@@ -22,9 +22,10 @@ import {SchedulesEffects} from './state/schedules/schedules.effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import { NavCoreComponent } from './core/nav-core/nav-core.component';
 import { ContactsCoreComponent } from './core/contacts-core/contacts-core.component';
+import { ScheduleCoreComponent } from './core/schedule-core/schedule-core.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, NavCoreComponent, ContactsCoreComponent],
+  declarations: [AppComponent, MainNavComponent, NavCoreComponent, ContactsCoreComponent, ScheduleCoreComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
