@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'schedule-main-nav-core',
-  templateUrl: './main-nav-core.component.html',
-  styleUrls: ['./main-nav-core.component.css']
+  selector: 'schedule-main-nav',
+  templateUrl: './main-nav.component.html',
+  styleUrls: ['./main-nav.component.css']
 })
 export class MainNavCoreComponent {
 //TODO: Handle Event please '^'

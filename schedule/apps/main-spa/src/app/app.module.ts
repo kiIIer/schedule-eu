@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MainNavCoreComponent} from './main-nav-core/main-nav-core.component';
+import {MainNavComponent} from './main-nav/main-nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -20,12 +20,23 @@ import {ContactsEffects} from './state/contacts/contacts.effects';
 import * as fromSchedules from './state/schedules/schedules.reducer';
 import {SchedulesEffects} from './state/schedules/schedules.effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
-import {ContactsComponent} from "./presentaion/contacts/contacts.component";
-import {MatCardModule} from "@angular/material/card";
-import {MatGridListModule} from "@angular/material/grid-list";
+import {ContactsComponent} from './presentaion/contacts/contacts.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {NavCoreComponent} from './core/nav-core/nav-core.component';
+import {ContactsCoreComponent} from './core/contacts-core/contacts-core.component';
+import {ScheduleCoreComponent} from './core/schedule-core/schedule-core.component';
+import {AppRouterEffects} from './state/router/app-router.effects';
 
 @NgModule({
-  declarations: [AppComponent, MainNavCoreComponent, ContactsComponent],
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    NavCoreComponent,
+    ContactsCoreComponent,
+    ScheduleCoreComponent,
+    ContactsComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -62,8 +73,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
     EffectsModule.forFeature([SchedulesEffects]),
     MatCardModule,
     MatGridListModule,
+    EffectsModule.forFeature([AppRouterEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
