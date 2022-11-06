@@ -1,4 +1,5 @@
 <schedule-main-nav
-  (goEvent)="goTo($event)">
+  (goEvent)="goTo($event)"
+  [isHandset]="isHandset$|async">
   <ng-content></ng-content>
 </schedule-main-nav>
