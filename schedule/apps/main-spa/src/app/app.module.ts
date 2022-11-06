@@ -20,9 +20,12 @@ import {ContactsEffects} from './state/contacts/contacts.effects';
 import * as fromSchedules from './state/schedules/schedules.reducer';
 import {SchedulesEffects} from './state/schedules/schedules.effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {ContactsComponent} from "./presentaion/contacts/contacts.component";
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
-  declarations: [AppComponent, MainNavCoreComponent],
+  declarations: [AppComponent, MainNavCoreComponent, ContactsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -57,6 +60,8 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
       fromSchedules.schedulesReducer,
     ),
     EffectsModule.forFeature([SchedulesEffects]),
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

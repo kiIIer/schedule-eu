@@ -1,0 +1,47 @@
+h1{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+}
+
+.comp {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  background-color: red;
+
+}
+
+.phone-one{
+  display: block;
+  justify-content: center;
+}
+
+mat-grid-tile {
+  background: lightblue;
+  /*width: 20em;*/
+  /*height: 1em;*/
+}
+
+
+.phone{
+  background-color: violet;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 0.5%;
+  display: block;
+  justify-content: center;
+
+  /*width: 100%;*/
+
+}
+
+.example-card {
+  max-width: 30em;
+  max-height: 7em;
+
+
+}
