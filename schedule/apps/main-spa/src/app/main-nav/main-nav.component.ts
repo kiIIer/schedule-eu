@@ -9,7 +9,6 @@ import {map, shareReplay} from 'rxjs/operators';
   styleUrls: ['./main-nav.component.css'],
 })
 export class MainNavComponent {
-//TODO: Handle Event please '^'
   @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
