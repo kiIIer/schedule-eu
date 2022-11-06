@@ -12,3 +12,16 @@ export interface Details {
   type: string;
   contact: string;
 }
+
+export const testData: ContactsEntity[] = [
+  {
+    id: 1,
+    name: 'Mike',
+    details: [
+      {
+        type: 'Telegram',
+        contact: '@Mike_mol',
+      },
+    ],
+  },
+];

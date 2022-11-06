@@ -1,8 +1,8 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
+import {createReducer, on, Action} from '@ngrx/store';
 
 import * as ContactsActions from './contacts.actions';
-import { ContactsEntity } from './contacts.models';
+import {ContactsEntity} from './contacts.models';
 
 export const CONTACTS_FEATURE_KEY = 'contacts';
 
@@ -31,18 +31,18 @@ const reducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(ContactsActions.loadContactsSuccess, (state, { contacts }) =>
-    contactsAdapter.setAll(contacts, { ...state, loaded: true })
+  on(ContactsActions.loadContactsSuccess, (state, {contacts}) =>
+    contactsAdapter.setAll(contacts, {...state, loaded: true}),
   ),
-  on(ContactsActions.loadContactsFailure, (state, { error }) => ({
+  on(ContactsActions.loadContactsFailure, (state, {error}) => ({
     ...state,
     error,
-  }))
+  })),
 );
 
 export function contactsReducer(
   state: ContactsState | undefined,
-  action: Action
+  action: Action,
 ) {
   return reducer(state, action);
 }
