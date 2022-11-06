@@ -10,7 +10,6 @@ import {ContactsEntity} from '../../state/contacts/contacts.models';
 
 
 export class ContactsComponent {
-  //TODO: give data please and remove test data '^'
-  @Input() isHandset: boolean | null = false;
-  @Input() contacts: ContactsEntity[] | null = [];
+  @Input() isHandset: boolean | null = null;
+  @Input() contacts: ContactsEntity[] | null = null;
 }
