@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,16 +16,27 @@ import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import * as fromContacts from './state/contacts/contacts.reducer';
-import { ContactsEffects } from './state/contacts/contacts.effects';
+import {ContactsEffects} from './state/contacts/contacts.effects';
 import * as fromSchedules from './state/schedules/schedules.reducer';
 import {SchedulesEffects} from './state/schedules/schedules.effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
-import { NavCoreComponent } from './core/nav-core/nav-core.component';
-import { ContactsCoreComponent } from './core/contacts-core/contacts-core.component';
-import { ScheduleCoreComponent } from './core/schedule-core/schedule-core.component';
+import {ContactsComponent} from './presentaion/contacts/contacts.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {NavCoreComponent} from './core/nav-core/nav-core.component';
+import {ContactsCoreComponent} from './core/contacts-core/contacts-core.component';
+import {ScheduleCoreComponent} from './core/schedule-core/schedule-core.component';
+import {AppRouterEffects} from './state/router/app-router.effects';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, NavCoreComponent, ContactsCoreComponent, ScheduleCoreComponent],
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    NavCoreComponent,
+    ContactsCoreComponent,
+    ScheduleCoreComponent,
+    ContactsComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,27 +57,26 @@ import { ScheduleCoreComponent } from './core/schedule-core/schedule-core.compon
           strictActionImmutability: true,
           strictStateImmutability: true,
         },
-      }
+      },
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature(
       fromContacts.CONTACTS_FEATURE_KEY,
-      fromContacts.contactsReducer
+      fromContacts.contactsReducer,
     ),
     EffectsModule.forFeature([ContactsEffects]),
     StoreModule.forFeature(
       fromSchedules.SCHEDULES_FEATURE_KEY,
-      fromSchedules.schedulesReducer
+      fromSchedules.schedulesReducer,
     ),
     EffectsModule.forFeature([SchedulesEffects]),
-    StoreModule.forFeature(
-      fromAppRouter.APP_ROUTER_FEATURE_KEY,
-      fromAppRouter.appRouterReducer
-    ),
+    MatCardModule,
+    MatGridListModule,
     EffectsModule.forFeature([AppRouterEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
