@@ -1,0 +1,35 @@
+@startuml sheets
+
+entity faculties{
+    faculty
+    courses_link
+}
+
+entity courses {
+    courses
+    groups_link
+}
+
+entity groups{
+    group
+        schedule_link
+    }
+
+    entity schedule{
+        id
+        year
+        month
+        day
+        hour
+        minute
+        tutor
+        place
+        type
+        subject
+    }
+
+    faculties::course_link -> courses
+    courses::groups_link -> groups
+    groups::schedule_link -> schedule
+
+    @enduml
