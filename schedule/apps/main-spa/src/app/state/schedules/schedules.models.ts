@@ -8,7 +8,5 @@ export interface SchedulesEntity {
   place: string,
   type: string,
   subject: string,
-  group: string,
-  faculty: string,
-  course: string
+  groupId: string
 }
