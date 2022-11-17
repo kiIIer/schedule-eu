@@ -31,6 +31,8 @@ import * as fromView from './state/view/view.reducer';
 import { ViewEffects } from './state/view/view.effects';
 import * as fromFaculties from './state/faculties/faculties.reducer';
 import { FacultiesEffects } from './state/faculties/faculties.effects';
+import * as fromGroups from './state/groups/groups.reducer';
+import { GroupsEffects } from './state/groups/groups.effects';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,11 @@ import { FacultiesEffects } from './state/faculties/faculties.effects';
       fromFaculties.facultiesReducer
     ),
     EffectsModule.forFeature([FacultiesEffects]),
+    StoreModule.forFeature(
+      fromGroups.GROUPS_FEATURE_KEY,
+      fromGroups.groupsReducer
+    ),
+    EffectsModule.forFeature([GroupsEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
