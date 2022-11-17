@@ -12,7 +12,7 @@ describe('Groups Selectors', () => {
   const createGroupsEntity = (id: string, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
+      scheduleLink: name || `name-${id}`,
     } as GroupsEntity);
 
   let state: GroupsPartialState;

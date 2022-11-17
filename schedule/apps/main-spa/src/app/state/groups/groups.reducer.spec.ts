@@ -11,7 +11,7 @@ import {
 describe('Groups Reducer', () => {
   const createGroupsEntity = (id: string, name = ''): GroupsEntity => ({
     id,
-    name: name || `name-${id}`,
+    scheduleLink: name || `name-${id}`,
   });
 
   describe('valid Groups actions', () => {
