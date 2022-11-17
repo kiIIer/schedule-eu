@@ -3,5 +3,5 @@
  */
 export interface FacultiesEntity {
   id: string; // Primary ID
-  courses_link: string;
+  groupsLink: string;
 }

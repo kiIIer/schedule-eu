@@ -3,6 +3,6 @@
  */
 export interface GroupsEntity {
   id: string; // Primary ID
-  name: string;
+  scheduleLink: string;
   facultyId: string;
 }
