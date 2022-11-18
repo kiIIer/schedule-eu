@@ -33,6 +33,7 @@ import * as fromFaculties from './state/faculties/faculties.reducer';
 import { FacultiesEffects } from './state/faculties/faculties.effects';
 import * as fromGroups from './state/groups/groups.reducer';
 import { GroupsEffects } from './state/groups/groups.effects';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -94,5 +95,6 @@ import { GroupsEffects } from './state/groups/groups.effects';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports:[HttpClientModule]
 })
 export class AppModule {}

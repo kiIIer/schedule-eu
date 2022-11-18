@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GroupsService } from './groups.service';
+import { SheetWorkerService } from './sheet-worker.service';
 
-describe('GroupsService', () => {
-  let service: GroupsService;
+describe('SheetWorkerService', () => {
+  let service: SheetWorkerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GroupsService);
+    service = TestBed.inject(SheetWorkerService);
   });
 
   it('should be created', () => {
