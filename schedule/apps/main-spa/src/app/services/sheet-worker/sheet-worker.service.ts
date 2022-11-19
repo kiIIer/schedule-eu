@@ -6,13 +6,13 @@ import {SheetResponse} from './sheetResponse';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {FacultiesEntity} from '../../state/faculties/faculties.models';
+import {KeyService} from '../key/key.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SheetWorkerService<T> {
-  private readonly apiKey: string = 'AIzaSyCJqwa1iYHzoKwFbKc6Dw5Yw4VnbHMFoPw';
-  private readonly params: HttpParams = new HttpParams().set('key', this.apiKey);
+  private readonly params: HttpParams = new HttpParams().set('key', this.key.getKey());
 
   private formLink(id: string, range: string) {
     return `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}`;
@@ -45,6 +45,6 @@ export class SheetWorkerService<T> {
   }
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private key: KeyService) {
   }
 }
