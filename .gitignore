@@ -131,3 +131,4 @@ testem.log
 Thumbs.db
 
 .angular
+schedule/apps/main-spa/src/environments/*
