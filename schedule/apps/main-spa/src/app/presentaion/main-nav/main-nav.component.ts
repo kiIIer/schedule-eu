@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {initFaculties} from '../../state/faculties/faculties.actions';
+import {initContacts} from '../../state/contacts/contacts.actions';
 
 @Component({
   selector: 'schedule-main-nav',
@@ -18,7 +19,7 @@ export class MainNavComponent {
   }
 
   test() {
-    this.store.dispatch(initFaculties());
+    this.store.dispatch(initContacts());
   }
 
 }
