@@ -20,8 +20,4 @@ export class ScheduleCoreComponent {
   constructor(private store: Store) {
     this.schedules$ = this.store.select(getSelectedSchedules);
   }
-
-  test(){
-    this.store.dispatch(loadSchedules({groupId:'221.2'}))
-  }
 }
