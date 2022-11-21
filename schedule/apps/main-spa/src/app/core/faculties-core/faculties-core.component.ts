@@ -2,6 +2,8 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {getFacultyIds} from '../../state/faculties/faculties.selectors';
+import {selectIsHandset} from '../../state/view/view.selectors';
+import {goToUrl} from '../../state/router/app-router.actions';
 
 @Component({
   selector: 'schedule-faculties-core',
@@ -14,6 +16,10 @@ export class FacultiesCoreComponent {
 
   constructor(private store: Store) {
     this.faculties$ = this.store.select(getFacultyIds);
+  }
+
+  goTo(url: string) {
+    this.store.dispatch(goToUrl({url: url}));
   }
 
 }
