@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {getFacultyIds} from '../../state/faculties/faculties.selectors';
 import {goToUrl} from '../../state/router/app-router.actions';
-import {getAllGroups} from '../../state/groups/groups.selectors';
+import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selectors';
 import {GroupsEntity} from '../../state/groups/groups.models';
 
 @Component({
@@ -16,7 +16,7 @@ export class GroupsCoreComponent {
   groups$: Observable<GroupsEntity[]>;
 
   constructor(private store: Store) {
-    this.groups$ = this.store.select(getAllGroups);
+    this.groups$ = this.store.select(getSelectedGroups);
   }
 
   goTo(url: string) {
