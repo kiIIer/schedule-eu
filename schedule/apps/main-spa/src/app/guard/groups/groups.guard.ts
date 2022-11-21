@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {asyncScheduler, catchError, filter, Observable, scheduled, tap} from 'rxjs';
+import {asyncScheduler, catchError, filter, Observable, scheduled, switchMap, tap} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {getAllFaculties} from '../../state/faculties/faculties.selectors';
 import {initFaculties} from '../../state/faculties/faculties.actions';
-import {map, withLatestFrom} from 'rxjs/operators';
+import {map, mergeMap, withLatestFrom} from 'rxjs/operators';
 import {getAllGroups} from '../../state/groups/groups.selectors';
 import {selectRouteParam, selectRouteParams} from '../../state/router/app-router.selectors';
 import {loadGroups} from '../../state/groups/groups.actions';
@@ -18,7 +18,9 @@ export class GroupsGuard implements CanActivate {
   }
 
   private checkStore(): Observable<boolean> {
-    return this.store.select(getAllGroups).pipe(
+    return this.store.select(getAllFaculties).pipe(
+      filter((faculties) => faculties.length != 0),
+      switchMap(() => this.store.select(getAllGroups)),
       withLatestFrom(this.store.select(selectRouteParam('faculty'))),
       tap(([groups, faculty]) => {
         if (groups.length == 0) {
