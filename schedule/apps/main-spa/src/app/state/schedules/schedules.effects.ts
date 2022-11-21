@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {Injectable} from '@angular/core';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
 import {fetch} from '@nrwl/angular';
@@ -13,6 +14,8 @@ import {Store} from '@ngrx/store';
 import {SchedulesEntity} from './schedules.models';
 import {getGroupsEntities} from '../groups/groups.selectors';
 import {SchedulesState} from './schedules.reducer';
+import {D} from '@angular/cdk/keycodes';
+import {scheduled} from 'rxjs';
 
 @Injectable()
 export class SchedulesEffects {
@@ -27,10 +30,10 @@ export class SchedulesEffects {
           map((response) =>
             response.ok
               ? SchedulesActions.loadSchedulesSuccess({
-                schedules: this.dateUpdate(
-                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                  this.addGroupLink(response.body!, action.groupId),
-                ),
+                schedules: response.body!
+                  .map((schedule) => this.addGroupLink(schedule, action.groupId))
+                  .map((schedule) => this.addRandomId(schedule))
+                  .map((schedule) => this.dateUpdate(schedule)),
               })
               : SchedulesActions.loadSchedulesFailure({error: response.statusText})),
         );
@@ -38,27 +41,33 @@ export class SchedulesEffects {
     ),
   );
 
-  private addGroupLink(schedules: SchedulesEntity[], link: string): SchedulesEntity[] {
-    return schedules.map(
-      (schedule: SchedulesEntity) => ({...schedule, groupId: link}),
-    );
+  private addRandomId(schedule: SchedulesEntity): SchedulesEntity {
+    return ({...schedule, id: crypto.randomUUID()});
   }
 
-  private dateUpdate(schedules: SchedulesEntity[]): SchedulesEntity[] {
-    return schedules.map(
-      (schedule: SchedulesEntity) => {
-        const dateString: string = schedule.date as unknown as string;
+  private addGroupLink(schedule: SchedulesEntity, link: string): SchedulesEntity {
+    return ({...schedule, groupId: link});
+  }
 
-        const [dateComponents, timeComponents] = dateString.split(' ');
+  private dateUpdate(schedule: SchedulesEntity): SchedulesEntity {
+    const dateString: string = schedule.date as unknown as string;
 
-        const [month, day, year] = dateComponents.split('/');
-        const [hours, minutes] = timeComponents.split(':');
+    const [dateComponents, timeComponents] = dateString.split(' ');
 
-        const date = new Date(+year, +month - 1, +day, +hours, +minutes, 0);
+    const [day, month, year] = dateComponents.split('/');
+    const [hours, minutes] = timeComponents.split(':');
 
-        return {...schedule, date: date};
-      },
-    );
+    const date = new Date();
+
+    date.setUTCFullYear(+year);
+    date.setUTCMonth(+month - 1);
+    date.setUTCDate(+day);
+    date.setUTCHours(+hours);
+    date.setUTCMinutes(+minutes);
+    date.setUTCSeconds(0);
+    date.setUTCMilliseconds(0);
+
+    return {...schedule, date: date};
   }
 
   constructor(private readonly actions$: Actions, private sheetWorker: SheetWorkerService<SchedulesEntity>, private store: Store) {
