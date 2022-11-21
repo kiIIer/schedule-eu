@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {
   FACULTIES_FEATURE_KEY,
   FacultiesState,
@@ -7,38 +7,43 @@ import {
 
 // Lookup the 'Faculties' feature state managed by NgRx
 export const getFacultiesState = createFeatureSelector<FacultiesState>(
-  FACULTIES_FEATURE_KEY
+  FACULTIES_FEATURE_KEY,
 );
 
-const { selectAll, selectEntities } = facultiesAdapter.getSelectors();
+const {selectAll, selectEntities} = facultiesAdapter.getSelectors();
 
 export const getFacultiesLoaded = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => state.loaded
+  (state: FacultiesState) => state.loaded,
 );
 
 export const getFacultiesError = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => state.error
+  (state: FacultiesState) => state.error,
+);
+
+export const getFacultyIds = createSelector(
+  getFacultiesState,
+  (state: FacultiesState) => state.ids as string[],
 );
 
 export const getAllFaculties = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => selectAll(state)
+  (state: FacultiesState) => selectAll(state),
 );
 
 export const getFacultiesEntities = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => selectEntities(state)
+  (state: FacultiesState) => selectEntities(state),
 );
 
 export const getSelectedId = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => state.selectedId
+  (state: FacultiesState) => state.selectedId,
 );
 
 export const getSelected = createSelector(
   getFacultiesEntities,
   getSelectedId,
-  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
+  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined),
 );

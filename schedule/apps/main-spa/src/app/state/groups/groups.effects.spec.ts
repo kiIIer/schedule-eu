@@ -28,7 +28,7 @@ describe('GroupsEffects', () => {
 
   describe('init$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: GroupsActions.initGroups() });
+      actions = hot('-a-|', { a: GroupsActions.loadGroups() });
 
       const expected = hot('-a-|', {
         a: GroupsActions.loadGroupsSuccess({ groups: [] }),
