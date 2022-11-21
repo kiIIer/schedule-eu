@@ -15,7 +15,8 @@ import {SchedulesEntity} from './schedules.models';
 import {getGroupsEntities} from '../groups/groups.selectors';
 import {SchedulesState} from './schedules.reducer';
 import {D} from '@angular/cdk/keycodes';
-import {scheduled} from 'rxjs';
+import {asyncScheduler, catchError, scheduled} from 'rxjs';
+import {goToUrl} from '../router/app-router.actions';
 
 @Injectable()
 export class SchedulesEffects {
@@ -38,6 +39,7 @@ export class SchedulesEffects {
               : SchedulesActions.loadSchedulesFailure({error: response.statusText})),
         );
       }),
+      catchError(() => scheduled([goToUrl({url: 'not-found'})], asyncScheduler)),
     ),
   );
 

@@ -39,6 +39,7 @@ import { FacultiesComponent } from './presentation/faculties/faculties.component
 import { GroupsCoreComponent } from './core/groups-core/groups-core.component';
 import { GroupsComponent } from './presentation/groups/groups.component';
 import { ScheduleComponent } from './presentation/schedule/schedule.component';
+import { NotFoundComponent } from './presentation/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ScheduleComponent } from './presentation/schedule/schedule.component';
     GroupsCoreComponent,
     GroupsComponent,
     ScheduleComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import {GroupsCoreComponent} from './core/groups-core/groups-core.component';
 import {GroupsGuard} from './guard/groups/groups.guard';
 import {G} from '@angular/cdk/keycodes';
 import {SchedulesGuard} from './guard/schedules/schedules.guard';
+import {NotFoundComponent} from './presentation/not-found/not-found.component';
 
 const routes: Routes = [
   {path: 'contacts', component: ContactsCoreComponent, canActivate: [ContactsGuard]},
@@ -20,6 +21,7 @@ const routes: Routes = [
     component: ScheduleCoreComponent,
     canActivate: [FacultiesGuard, GroupsGuard, SchedulesGuard],
   },
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

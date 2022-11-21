@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {Injectable} from '@angular/core';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
 import {fetch} from '@nrwl/angular';
@@ -10,7 +11,8 @@ import {SheetWorkerService} from '../../services/sheet-worker/sheet-worker.servi
 import {GroupsEntity} from './groups.models';
 import {Store} from '@ngrx/store';
 import {getAllFaculties, getFacultiesEntities} from '../faculties/faculties.selectors';
-import {filter} from 'rxjs';
+import {asyncScheduler, catchError, filter, scheduled} from 'rxjs';
+import {goToUrl} from '../router/app-router.actions';
 
 @Injectable()
 export class GroupsEffects {
@@ -19,8 +21,8 @@ export class GroupsEffects {
     this.actions$.pipe(
       ofType(GroupsActions.loadGroups),
       withLatestFrom(this.store.select(getFacultiesEntities)),
+
       mergeMap(([action, faculties]) => {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return this.sheetWorker.getSheet(faculties[action.facultyId]!.groupsLink, 'A:B').pipe(
           map((response) =>
             response.ok
@@ -29,6 +31,7 @@ export class GroupsEffects {
               : GroupsActions.loadGroupsFailure({error: response.statusText})),
         );
       }),
+      catchError(() => scheduled([goToUrl({url: 'not-found'})], asyncScheduler)),
     ),
   );
 
