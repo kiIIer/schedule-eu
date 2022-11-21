@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {FacultiesEntity} from '../../state/faculties/faculties.models';
 import {getFacultyIds} from '../../state/faculties/faculties.selectors';
 
 @Component({

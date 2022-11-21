@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'schedule-faculties',
@@ -6,8 +6,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./faculties.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class FacultiesComponent implements OnInit {
-  constructor() {}
+export class FacultiesComponent {
 
-  ngOnInit(): void {}
+  @Input() facultyIds: string[] | null = [];
+
 }
