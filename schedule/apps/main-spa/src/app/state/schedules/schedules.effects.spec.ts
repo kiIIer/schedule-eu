@@ -28,7 +28,7 @@ describe('SchedulesEffects', () => {
 
   describe('init$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: SchedulesActions.initSchedules() });
+      actions = hot('-a-|', { a: SchedulesActions.loadSchedules() });
 
       const expected = hot('-a-|', {
         a: SchedulesActions.loadSchedulesSuccess({ schedules: [] }),
