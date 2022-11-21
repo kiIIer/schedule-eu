@@ -12,7 +12,7 @@ import {GroupsEntity} from '../../state/groups/groups.models';
   styleUrls: ['./groups-core.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class GroupsCoreComponent implements OnInit {
+export class GroupsCoreComponent {
   groups$: Observable<GroupsEntity[]>;
 
   constructor(private store: Store) {
