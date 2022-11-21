@@ -1,1 +1,4 @@
-<p>groups-core works!</p>
+<schedule-groups
+  [groups]="groups$ | async"
+  (goEvent)="goTo($event)">
+</schedule-groups>
