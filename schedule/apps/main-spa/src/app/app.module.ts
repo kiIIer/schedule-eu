@@ -38,6 +38,7 @@ import { FacultiesCoreComponent } from './core/faculties-core/faculties-core.com
 import { FacultiesComponent } from './presentation/faculties/faculties.component';
 import { GroupsCoreComponent } from './core/groups-core/groups-core.component';
 import { GroupsComponent } from './presentation/groups/groups.component';
+import { ScheduleComponent } from './presentation/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { GroupsComponent } from './presentation/groups/groups.component';
     FacultiesComponent,
     GroupsCoreComponent,
     GroupsComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,

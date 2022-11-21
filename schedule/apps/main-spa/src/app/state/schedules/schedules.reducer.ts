@@ -27,7 +27,7 @@ export const initialSchedulesState: SchedulesState =
 
 const reducer = createReducer(
   initialSchedulesState,
-  on(SchedulesActions.initSchedules, (state) => ({
+  on(SchedulesActions.loadSchedules, (state) => ({
     ...state,
     loaded: false,
     error: null,
