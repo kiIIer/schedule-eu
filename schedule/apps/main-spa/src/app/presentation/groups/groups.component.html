@@ -1,1 +1,6 @@
-<p>groups works!</p>
+<button
+  *ngFor="let group of groups"
+  mat-raised-button
+  (click)="this.goEvent.emit('faculties/' + group.facultyId + '/' + group.id)">
+  {{group.id}}
+</button>

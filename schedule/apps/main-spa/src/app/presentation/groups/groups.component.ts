@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {GroupsEntity} from '../../state/groups/groups.models';
 
 @Component({
   selector: 'schedule-groups',
@@ -6,8 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./groups.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class GroupsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class GroupsComponent {
+  @Input() groups: GroupsEntity[] | null = [];
+  @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
 }
