@@ -36,6 +36,8 @@ import { GroupsEffects } from './state/groups/groups.effects';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FacultiesCoreComponent } from './core/faculties-core/faculties-core.component';
 import { FacultiesComponent } from './presentation/faculties/faculties.component';
+import { GroupsCoreComponent } from './core/groups-core/groups-core.component';
+import { GroupsComponent } from './presentation/groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { FacultiesComponent } from './presentation/faculties/faculties.component
     ContactsComponent,
     FacultiesCoreComponent,
     FacultiesComponent,
+    GroupsCoreComponent,
+    GroupsComponent,
   ],
   imports: [
     BrowserModule,
