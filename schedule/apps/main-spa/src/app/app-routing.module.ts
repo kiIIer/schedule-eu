@@ -8,12 +8,18 @@ import {FacultiesCoreComponent} from './core/faculties-core/faculties-core.compo
 import {FacultiesGuard} from './guard/faculties/faculties.guard';
 import {GroupsCoreComponent} from './core/groups-core/groups-core.component';
 import {GroupsGuard} from './guard/groups/groups.guard';
+import {G} from '@angular/cdk/keycodes';
+import {SchedulesGuard} from './guard/schedules/schedules.guard';
 
 const routes: Routes = [
   {path: 'contacts', component: ContactsCoreComponent, canActivate: [ContactsGuard]},
   {path: 'faculties', component: FacultiesCoreComponent, canActivate: [FacultiesGuard]},
   {path: 'faculties/:faculty', component: GroupsCoreComponent, canActivate: [FacultiesGuard, GroupsGuard]},
-  {path: 'faculties/:faculty/:group', component: ScheduleCoreComponent},
+  {
+    path: 'faculties/:faculty/:group',
+    component: ScheduleCoreComponent,
+    canActivate: [FacultiesGuard, GroupsGuard, SchedulesGuard],
+  },
 ];
 
 @NgModule({
