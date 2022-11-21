@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainNavComponent } from './presentaion/main-nav/main-nav.component';
+import { MainNavComponent } from './presentation/main-nav/main-nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,7 +20,7 @@ import { ContactsEffects } from './state/contacts/contacts.effects';
 import * as fromSchedules from './state/schedules/schedules.reducer';
 import { SchedulesEffects } from './state/schedules/schedules.effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ContactsComponent } from './presentaion/contacts/contacts.component';
+import { ContactsComponent } from './presentation/contacts/contacts.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NavCoreComponent } from './core/nav-core/nav-core.component';

@@ -11,10 +11,10 @@ import {getFacultyIds} from '../../state/faculties/faculties.selectors';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FacultiesCoreComponent {
-  faculties$: Observable<FacultiesEntity[]>;
+  faculties$: Observable<string[]>;
 
   constructor(private store: Store) {
-    this.store.select(getFacultyIds);
+    this.faculties$ = this.store.select(getFacultyIds);
   }
 
 }

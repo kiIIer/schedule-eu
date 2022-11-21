@@ -24,7 +24,7 @@ export const getFacultiesError = createSelector(
 
 export const getFacultyIds = createSelector(
   getFacultiesState,
-  (state: FacultiesState) => state.ids,
+  (state: FacultiesState) => state.ids as string[],
 );
 
 export const getAllFaculties = createSelector(
