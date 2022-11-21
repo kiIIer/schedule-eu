@@ -1,1 +1,6 @@
-<p *ngFor="let id of facultyIds">{{id}}</p>
+<button
+  *ngFor="let id of facultyIds"
+  mat-raised-button
+  (click)="this.goEvent.emit('faculties/' + id)">
+  {{id}}
+</button>

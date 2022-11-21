@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'schedule-faculties',
@@ -9,5 +9,6 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 export class FacultiesComponent {
 
   @Input() facultyIds: string[] | null = [];
+  @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
 
 }
