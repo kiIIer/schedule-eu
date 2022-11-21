@@ -12,8 +12,8 @@ import {GroupsGuard} from './guard/groups/groups.guard';
 const routes: Routes = [
   {path: 'contacts', component: ContactsCoreComponent, canActivate: [ContactsGuard]},
   {path: 'faculties', component: FacultiesCoreComponent, canActivate: [FacultiesGuard]},
-  {path: 'schedule/:group', component: ScheduleCoreComponent},
   {path: 'faculties/:faculty', component: GroupsCoreComponent, canActivate: [FacultiesGuard, GroupsGuard]},
+  {path: 'faculties/:faculty/:group', component: ScheduleCoreComponent},
 ];
 
 @NgModule({
