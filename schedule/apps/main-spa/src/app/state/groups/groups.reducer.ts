@@ -32,7 +32,7 @@ const reducer = createReducer(
     error: null,
   })),
   on(GroupsActions.loadGroupsSuccess, (state, { groups }) =>
-    groupsAdapter.setAll(groups, { ...state, loaded: true })
+    groupsAdapter.addMany(groups, { ...state, loaded: true })
   ),
   on(GroupsActions.loadGroupsFailure, (state, { error }) => ({
     ...state,

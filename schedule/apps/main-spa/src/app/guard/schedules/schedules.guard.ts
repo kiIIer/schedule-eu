@@ -7,7 +7,7 @@ import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selecto
 import {map, withLatestFrom} from 'rxjs/operators';
 import {selectRouteParam} from '../../state/router/app-router.selectors';
 import {loadGroups} from '../../state/groups/groups.actions';
-import {getAllSchedules} from '../../state/schedules/schedules.selectors';
+import {getAllSchedules, getSelectedSchedules} from '../../state/schedules/schedules.selectors';
 import {loadSchedules} from '../../state/schedules/schedules.actions';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class SchedulesGuard implements CanActivate {
   private checkStore(): Observable<boolean> {
     return this.store.select(getSelectedGroups).pipe(
       filter((groups) => groups.length != 0),
-      switchMap(() => this.store.select(getAllSchedules)),
+      switchMap(() => this.store.select(getSelectedSchedules)),
       withLatestFrom(this.store.select(selectRouteParam('group'))),
       tap(([schedules, group]) => {
         if (schedules.length == 0) {
