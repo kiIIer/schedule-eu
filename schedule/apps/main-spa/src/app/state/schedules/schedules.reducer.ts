@@ -33,7 +33,7 @@ const reducer = createReducer(
     error: null,
   })),
   on(SchedulesActions.loadSchedulesSuccess, (state, { schedules }) =>
-    schedulesAdapter.setAll(schedules, { ...state, loaded: true })
+    schedulesAdapter.addMany(schedules, { ...state, loaded: true })
   ),
   on(SchedulesActions.loadSchedulesFailure, (state, { error }) => ({
     ...state,
