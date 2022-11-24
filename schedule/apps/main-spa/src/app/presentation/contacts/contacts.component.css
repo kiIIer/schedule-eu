@@ -27,15 +27,13 @@ mat-card-content, mat-card-title{
 
 .phone{
   background: rgb(16, 56, 187);
-  margin: 0.5%;
   display: block;
   justify-content: center;
   width: 100%;
-
 }
 
 .example-card {
-  max-width: 50em;
+  max-width: 40em;
   height: auto;
   margin-bottom: 12px;
 
