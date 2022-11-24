@@ -6,7 +6,7 @@ import {Store} from '@ngrx/store';
 import {getAllFaculties} from '../../state/faculties/faculties.selectors';
 import {initFaculties} from '../../state/faculties/faculties.actions';
 import {map, mergeMap, withLatestFrom} from 'rxjs/operators';
-import {getAllGroups} from '../../state/groups/groups.selectors';
+import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selectors';
 import {selectRouteParam, selectRouteParams} from '../../state/router/app-router.selectors';
 import {loadGroups} from '../../state/groups/groups.actions';
 
@@ -20,7 +20,7 @@ export class GroupsGuard implements CanActivate {
   private checkStore(): Observable<boolean> {
     return this.store.select(getAllFaculties).pipe(
       filter((faculties) => faculties.length != 0),
-      switchMap(() => this.store.select(getAllGroups)),
+      switchMap(() => this.store.select(getSelectedGroups)),
       withLatestFrom(this.store.select(selectRouteParam('faculty'))),
       tap(([groups, faculty]) => {
         if (groups.length == 0) {
