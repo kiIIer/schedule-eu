@@ -1,0 +1,16 @@
+.example-card{
+  width: 400px;
+  margin-bottom: 12px;
+  display: block;
+  justify-content: center;
+}
+
+mat-form-field{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.schedule{
+  display: grid;
+  justify-content: center;
+}

@@ -1,6 +1,17 @@
-<button
-  *ngFor="let group of groups"
-  mat-raised-button
-  (click)="this.goEvent.emit('faculties/' + group.facultyId + '/' + group.id)">
-  {{group.id}}
-</button>
+
+
+<div class="cards">
+  <mat-card class="example-card">
+    <mat-card-title>Groups</mat-card-title>
+    <mat-card-content>
+      <br>
+      <button
+        *ngFor="let group of groups"
+        mat-raised-button
+        (click)="this.goEvent.emit('faculties/' + group.facultyId + '/' + group.id)">
+        {{group.id}}
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+</div>

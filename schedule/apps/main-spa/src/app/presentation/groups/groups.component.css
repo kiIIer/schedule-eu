@@ -1,0 +1,19 @@
+button{
+  display: block;
+  margin: 12px;
+  width: 100px;
+}
+
+.cards{
+  display: grid;
+  justify-content: center;
+}
+
+.example-card{
+  margin-top: 10px;
+  display: grid;
+  justify-content: center;
+  width: 15em;
+  text-align: center;
+}
+

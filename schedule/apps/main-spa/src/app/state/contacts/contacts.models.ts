@@ -4,6 +4,7 @@
 
 export interface ContactsEntity {
   id: number; // Primary ID
+  type: string;
   name: string;
   details: Details[];
 }

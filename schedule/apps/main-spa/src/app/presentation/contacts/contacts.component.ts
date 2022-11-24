@@ -12,4 +12,5 @@ import {ContactsEntity} from '../../state/contacts/contacts.models';
 export class ContactsComponent {
   @Input() isHandset: boolean | null = null;
   @Input() contacts: ContactsEntity[] | null = null;
+
 }

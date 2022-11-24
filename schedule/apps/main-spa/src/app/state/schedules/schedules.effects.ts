@@ -27,7 +27,7 @@ export class SchedulesEffects {
       withLatestFrom(this.store.select(getGroupsEntities)),
       mergeMap(([action, groups]) => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        return this.sheetWorker.getSheet(groups[action.groupId]!.scheduleLink, 'A:E').pipe(
+        return this.sheetWorker.getSheet(groups[action.groupId]!.scheduleLink, 'A:F').pipe(
           map((response) =>
             response.ok
               ? SchedulesActions.loadSchedulesSuccess({

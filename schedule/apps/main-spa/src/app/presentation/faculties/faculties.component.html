@@ -1,6 +1,16 @@
-<button
-  *ngFor="let id of facultyIds"
-  mat-raised-button
-  (click)="this.goEvent.emit('faculties/' + id)">
-  {{id}}
-</button>
+
+<div class="card">
+  <mat-card class="example-card">
+    <mat-card-title>Faculties</mat-card-title>
+    <mat-card-content>
+      <br>
+      <button
+        *ngFor="let id of facultyIds"
+        mat-raised-button
+        (click)="this.goEvent.emit('faculties/' + id)">
+        {{id}}
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
