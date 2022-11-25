@@ -6,9 +6,9 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./home-page.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   @Input() isHandset: boolean | null = null;
-  constructor() {}
-
-  ngOnInit(): void {}
+  test(){
+    console.log(this.isHandset)
+  }
 }

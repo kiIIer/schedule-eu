@@ -45,6 +45,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HomePageComponent } from './presentation/home-page/home-page.component';
+import { HomePageCoreComponent } from './core/home-page-core/home-page-core.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { HomePageComponent } from './presentation/home-page/home-page.component'
     ScheduleComponent,
     NotFoundComponent,
     HomePageComponent,
+    HomePageCoreComponent,
   ],
   imports: [
     BrowserModule,

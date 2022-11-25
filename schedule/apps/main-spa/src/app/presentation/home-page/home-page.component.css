@@ -1,31 +1,28 @@
 .example-card {
   width: 28em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
   word-wrap: break-word;
 
 }
 
 .phone-one{
-  display: block;
-  justify-content: center;
+  background-color: white;
+  display: grid;
+  width: auto;
 }
 
-.phone{
-  background: rgb(16, 56, 187);
-  display: block;
-  justify-content: center;
-  width: 100%;
-}
 
+.logo{
+  background-color: white;
+}
 
 .cards{
-  display: grid;
+  display: flex;
   justify-content: center;
 }
 
 img{
-  background-color: white;
+  /*background-color: white;*/
 }
 
 mat-card-header{
