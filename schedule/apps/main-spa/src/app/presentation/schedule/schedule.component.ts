@@ -16,7 +16,7 @@ export class ScheduleComponent {
   @Input() schedules: SchedulesEntity[] | null = [];
   range = new FormGroup({
     start: new FormControl<Date | null>(null, [Validators.required]),
-    end: new FormControl<Date | null>(null, [Validators.required]),
+    end: new FormControl<Date | null>(null, []),
   });
 
   selectedSchedules: SchedulesEntity[] | undefined | null = null;
@@ -36,14 +36,27 @@ export class ScheduleComponent {
       return;
     }
 
-    this.selectedSchedules = this.schedules?.filter(
-      (schedule) => {
-        if (schedule.date.getTime() < this.range.value.start!.getTime()) {
-          return false;
-        }
-        return schedule.date.getTime() <= this.range.value.end!.getTime();
+    if (this.range.value.end == null || (this.range.value.end.getTime() == this.range.value.start!.getTime())) {
+      this.selectedSchedules = this.schedules?.filter(
+        (schedule) => {
+          if (schedule.date.getTime() < this.range.value.start!.getTime()) {
+            return false;
+          }
 
-      },
-    );
+          return (schedule.date.getTime() - this.range.value.start!.getTime()) < 8.64e+7;
+        },
+      );
+    } else {
+      this.selectedSchedules = this.schedules?.filter(
+        (schedule) => {
+          if (schedule.date.getTime() < this.range.value.start!.getTime()) {
+            return false;
+          }
+          return schedule.date.getTime() <= this.range.value.end!.getTime();
+
+        },
+      );
+    }
   }
+
 }

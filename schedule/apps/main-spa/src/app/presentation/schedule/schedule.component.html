@@ -42,7 +42,7 @@
       <p>{{schedule.subject}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <a [href]="schedule.link" mat-raised-button color="primary">{{schedule.place}}</a>
+      <a *ngIf="schedule.link" [href]="schedule.link" mat-raised-button color="primary">{{schedule.place}}</a>
     </mat-card-actions>
   </mat-card>
 </div>
