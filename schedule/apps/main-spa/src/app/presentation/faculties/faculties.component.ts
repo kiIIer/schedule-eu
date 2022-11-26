@@ -13,9 +13,10 @@ export class FacultiesComponent {
 
   @Input() facultyIds: string[] | null = [];
   @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Input() isHandset: boolean | null = null;
 
   facultyGroup = new FormGroup({
-      group: new FormControl(''),
+      faculty: new FormControl(''),
     },
   );
 
@@ -23,7 +24,7 @@ export class FacultiesComponent {
 
   constructor() {
     this.filteredOptions = this.facultyGroup.valueChanges.pipe(
-      map((values) => values.group),
+      map((values) => values.faculty),
       startWith(''),
       map(value => this.filter(value || '')),
     );
@@ -38,10 +39,10 @@ export class FacultiesComponent {
 
   submit() {
     // eslint-disable-next-line
-    if (!this.facultyIds?.includes(this.facultyGroup.value.group!)) {
+    if (!this.facultyIds?.includes(this.facultyGroup.value.faculty!)) {
       return;
     }
 
-    this.goEvent.emit('faculties/' + this.facultyGroup.value.group);
+    this.goEvent.emit('faculties/' + this.facultyGroup.value.faculty);
   }
 }

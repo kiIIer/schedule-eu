@@ -1,19 +1,48 @@
-.example-card {
-  width: 400px;
-  margin-bottom: 12px;
+
+.schedule {
+  justify-content: center;
+  word-wrap: break-word;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.cards{
+  max-width: 400px;
+}
+
+.phone{
   display: block;
   justify-content: center;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.phone-one{
+  display: block;
+  justify-content: center;
+  width: auto;
+  word-wrap: break-word;
 }
 
 mat-form-field {
   margin-top: 12px;
   margin-bottom: 12px;
+  word-wrap: break-word;
+  width: 100%;
+
+
 }
 
-.schedule {
-  display: grid;
+.example-card {
+  margin-bottom: 12px;
+  display: block;
   justify-content: center;
+  word-wrap: break-word;
 }
+
+
 
 .mon {
   background-color: rgba(255, 0, 0, 0.2);

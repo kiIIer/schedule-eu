@@ -14,7 +14,7 @@ import {map} from 'rxjs/operators';
 export class GroupsComponent {
   @Input() groups: GroupsEntity[] | null = [];
   @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
-
+  @Input() isHandset: boolean | null = null;
 
   groupGroup = new FormGroup({
       group: new FormControl(''),

@@ -1,19 +1,35 @@
-button{
-  display: block;
-  margin: 12px;
-  width: 100px;
-}
 
 .cards{
   display: grid;
   justify-content: center;
 }
 
+.phone{
+  display: grid;
+  justify-content: center;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.phone-one{
+  display: grid;
+  justify-content: center;
+  width: auto;
+  word-wrap: break-word;
+}
+
 .example-card{
   margin-top: 10px;
   display: grid;
   justify-content: center;
-  width: 15em;
+  width: auto;
   text-align: center;
+  word-wrap: break-word;
 }
 
+form{
+  display: grid;
+  width: auto;
+  word-wrap: break-word;
+  align-items: center;
+}
