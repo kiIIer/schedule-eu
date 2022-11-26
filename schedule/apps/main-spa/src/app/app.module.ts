@@ -46,6 +46,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HomePageComponent } from './presentation/home-page/home-page.component';
 import { HomePageCoreComponent } from './core/home-page-core/home-page-core.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -84,18 +86,18 @@ import { HomePageCoreComponent } from './core/home-page-core/home-page-core.comp
           strictActionImmutability: true,
           strictStateImmutability: true,
         },
-      }
+      },
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature(
       fromContacts.CONTACTS_FEATURE_KEY,
-      fromContacts.contactsReducer
+      fromContacts.contactsReducer,
     ),
     EffectsModule.forFeature([ContactsEffects, ViewEffects]),
     StoreModule.forFeature(
       fromSchedules.SCHEDULES_FEATURE_KEY,
-      fromSchedules.schedulesReducer
+      fromSchedules.schedulesReducer,
     ),
     EffectsModule.forFeature([SchedulesEffects]),
     MatCardModule,
@@ -104,18 +106,20 @@ import { HomePageCoreComponent } from './core/home-page-core/home-page-core.comp
     StoreModule.forFeature(fromView.viewFeatureKey, fromView.reducer),
     StoreModule.forFeature(
       fromFaculties.FACULTIES_FEATURE_KEY,
-      fromFaculties.facultiesReducer
+      fromFaculties.facultiesReducer,
     ),
     EffectsModule.forFeature([FacultiesEffects]),
     StoreModule.forFeature(
       fromGroups.GROUPS_FEATURE_KEY,
-      fromGroups.groupsReducer
+      fromGroups.groupsReducer,
     ),
     EffectsModule.forFeature([GroupsEffects]),
     MatFormFieldModule,
     MatDatepickerModule,
     ReactiveFormsModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
