@@ -1,5 +1,3 @@
-
-
 <!--<p-->
 <!--  *ngFor="let schedule of schedules">-->
 <!--  {{schedule | json}}-->
@@ -12,11 +10,15 @@
       <input matEndDate formControlName="end" placeholder="End date">
     </mat-date-range-input>
     <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
 
     <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
     <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    <button mat-raised-button
+            color="primary"
+            (click)="applyFilter()">Apply
+    </button>
   </mat-form-field>
 
   <!--<p>Selected range: {{range.value | json}}</p>-->
@@ -25,7 +27,8 @@
 
 
   <mat-card class="example-card"
-            *ngFor="let schedule of schedules">
+            *ngFor="let schedule of selectedSchedules ? selectedSchedules : schedules"
+            [ngClass]="colorMap[schedule.date.getDay()]">
     <mat-card-header>
       <mat-card-title>{{schedule.date.toDateString()}}</mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
