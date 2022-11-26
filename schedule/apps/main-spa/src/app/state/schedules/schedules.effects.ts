@@ -34,7 +34,8 @@ export class SchedulesEffects {
                 schedules: response.body!
                   .map((schedule) => this.addGroupLink(schedule, action.groupId))
                   .map((schedule) => this.addRandomId(schedule))
-                  .map((schedule) => this.dateUpdate(schedule)),
+                  .map((schedule) => this.dateUpdate(schedule))
+                  .sort((a, b) => a.date.getTime() - b.date.getTime()),
               })
               : SchedulesActions.loadSchedulesFailure({error: response.statusText})),
         );

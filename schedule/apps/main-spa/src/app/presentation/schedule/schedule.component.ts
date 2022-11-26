@@ -2,8 +2,9 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {GroupsEntity} from '../../state/groups/groups.models';
 import {SchedulesEntity} from '../../state/schedules/schedules.models';
-import {FormControl, FormGroup} from "@angular/forms";
-import {type} from "os";
+import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import {type} from 'os';
+import {Dictionary} from '@ngrx/entity';
 
 @Component({
   selector: 'schedule-schedule',
@@ -14,7 +15,48 @@ import {type} from "os";
 export class ScheduleComponent {
   @Input() schedules: SchedulesEntity[] | null = [];
   range = new FormGroup({
-    start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
+    start: new FormControl<Date | null>(null, [Validators.required]),
+    end: new FormControl<Date | null>(null, []),
   });
+
+  selectedSchedules: SchedulesEntity[] | undefined | null = null;
+
+  colorMap: Dictionary<string> = {
+    [1]: 'mon',
+    [2]: 'tue',
+    [3]: 'wed',
+    [4]: 'thu',
+    [5]: 'fri',
+    [6]: 'sat',
+    [0]: 'sun',
+  };
+
+  applyFilter() {
+    if (!this.range.valid) {
+      return;
+    }
+
+    if (this.range.value.end == null || (this.range.value.end.getTime() == this.range.value.start!.getTime())) {
+      this.selectedSchedules = this.schedules?.filter(
+        (schedule) => {
+          if (schedule.date.getTime() < this.range.value.start!.getTime()) {
+            return false;
+          }
+
+          return (schedule.date.getTime() - this.range.value.start!.getTime()) < 8.64e+7;
+        },
+      );
+    } else {
+      this.selectedSchedules = this.schedules?.filter(
+        (schedule) => {
+          if (schedule.date.getTime() < this.range.value.start!.getTime()) {
+            return false;
+          }
+          return schedule.date.getTime() <= this.range.value.end!.getTime();
+
+        },
+      );
+    }
+  }
+
 }
