@@ -13,9 +13,11 @@ import {goToUrl} from '../../state/router/app-router.actions';
 })
 export class FacultiesCoreComponent {
   faculties$: Observable<string[]>;
+  isHandset$: Observable<boolean>;
 
   constructor(private store: Store) {
     this.faculties$ = this.store.select(getFacultyIds);
+    this.isHandset$ = this.store.select(selectIsHandset);
   }
 
   goTo(url: string) {

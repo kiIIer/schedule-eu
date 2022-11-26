@@ -20,16 +20,7 @@ export class ScheduleComponent {
   });
 
   selectedSchedules: SchedulesEntity[] | undefined | null = null;
-
-  colorMap: Dictionary<string> = {
-    [1]: 'mon',
-    [2]: 'tue',
-    [3]: 'wed',
-    [4]: 'thu',
-    [5]: 'fri',
-    [6]: 'sat',
-    [0]: 'sun',
-  };
+  @Input() isHandset: boolean | null = null;
 
   applyFilter() {
     if (!this.range.valid) {
@@ -58,5 +49,4 @@ export class ScheduleComponent {
       );
     }
   }
-
 }
