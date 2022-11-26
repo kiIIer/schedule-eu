@@ -10,15 +10,17 @@
       <input matEndDate formControlName="end" placeholder="End date">
     </mat-date-range-input>
     <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <button mat-icon-button
+            matSuffix
+            type="submit"
+            (click)="applyFilter()">
+      <mat-icon>done</mat-icon>
+    </button>
     <mat-date-range-picker #picker></mat-date-range-picker>
 
     <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
     <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-    <button mat-raised-button
-            color="primary"
-            (click)="applyFilter()">Apply
-    </button>
   </mat-form-field>
 
   <!--<p>Selected range: {{range.value | json}}</p>-->
