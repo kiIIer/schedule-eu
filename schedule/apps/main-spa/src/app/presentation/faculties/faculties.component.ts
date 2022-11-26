@@ -15,7 +15,7 @@ export class FacultiesComponent {
   @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
 
   facultyGroup = new FormGroup({
-      faculty: new FormControl(''),
+      group: new FormControl(''),
     },
   );
 
@@ -23,7 +23,7 @@ export class FacultiesComponent {
 
   constructor() {
     this.filteredOptions = this.facultyGroup.valueChanges.pipe(
-      map((values) => values.faculty),
+      map((values) => values.group),
       startWith(''),
       map(value => this.filter(value || '')),
     );
@@ -38,10 +38,10 @@ export class FacultiesComponent {
 
   submit() {
     // eslint-disable-next-line
-    if (!this.facultyIds?.includes(this.facultyGroup.value.faculty!)) {
+    if (!this.facultyIds?.includes(this.facultyGroup.value.group!)) {
       return;
     }
 
-    this.goEvent.emit('faculties/' + this.facultyGroup.value.faculty);
+    this.goEvent.emit('faculties/' + this.facultyGroup.value.group);
   }
 }
