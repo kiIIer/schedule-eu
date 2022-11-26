@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable, startWith} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -14,11 +14,16 @@ export class FacultiesComponent {
   @Input() facultyIds: string[] | null = [];
   @Output() goEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  facultyControl = new FormControl('');
+  facultyGroup = new FormGroup({
+      faculty: new FormControl(''),
+    },
+  );
+
   filteredOptions: Observable<string[]>;
 
   constructor() {
-    this.filteredOptions = this.facultyControl.valueChanges.pipe(
+    this.filteredOptions = this.facultyGroup.valueChanges.pipe(
+      map((values) => values.faculty),
       startWith(''),
       map(value => this.filter(value || '')),
     );
@@ -31,4 +36,12 @@ export class FacultiesComponent {
     return this.facultyIds!.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  submit() {
+    // eslint-disable-next-line
+    if (!this.facultyIds?.includes(this.facultyGroup.value.faculty!)) {
+      return;
+    }
+
+    this.goEvent.emit('faculties/' + this.facultyGroup.value.faculty);
+  }
 }
