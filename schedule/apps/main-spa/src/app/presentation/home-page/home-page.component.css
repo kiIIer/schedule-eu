@@ -1,0 +1,43 @@
+.cards{
+  display: flex;
+  justify-content: center;
+  word-wrap: break-word;
+}
+
+
+.example-card {
+  width: 28em;
+  margin: 1em;
+  word-wrap: break-word;
+}
+
+
+.phone-one{
+  display: grid;
+  justify-content: center;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.phone{
+  display: block;
+  justify-content: center;
+  width: auto;
+}
+
+.logo{
+  background-color: white;
+}
+
+.we{
+
+}
+
+img{
+  /*background-color: white;*/
+}
+
+mat-card-header{
+  text-align: center;
+  word-wrap: break-word;
+}

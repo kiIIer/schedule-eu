@@ -40,6 +40,12 @@ import { GroupsCoreComponent } from './core/groups-core/groups-core.component';
 import { GroupsComponent } from './presentation/groups/groups.component';
 import { ScheduleComponent } from './presentation/schedule/schedule.component';
 import { NotFoundComponent } from './presentation/not-found/not-found.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HomePageComponent } from './presentation/home-page/home-page.component';
+import { HomePageCoreComponent } from './core/home-page-core/home-page-core.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +61,8 @@ import { NotFoundComponent } from './presentation/not-found/not-found.component'
     GroupsComponent,
     ScheduleComponent,
     NotFoundComponent,
+    HomePageComponent,
+    HomePageCoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +112,10 @@ import { NotFoundComponent } from './presentation/not-found/not-found.component'
       fromGroups.groupsReducer
     ),
     EffectsModule.forFeature([GroupsEffects]),
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

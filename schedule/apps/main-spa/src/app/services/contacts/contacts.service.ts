@@ -25,13 +25,14 @@ export class ContactsService {
           const entities = response.body!.values.map((row, i) => {
 
             const name: string = row.shift()!;
+            const type: string = row.shift()!;
             const details: Details[] = [];
 
             for (let i = 0; i < row.length; i += 2) {
               const detail: Details = {type: row[i], contact: row[i + 1]};
               details.push(detail);
             }
-            const entity: ContactsEntity = {id: i, name: name, details: details};
+            const entity: ContactsEntity = {id: i, name: name, type: type,details: details};
 
             return entity;
           });

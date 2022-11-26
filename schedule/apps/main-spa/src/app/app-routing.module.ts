@@ -11,8 +11,11 @@ import {GroupsGuard} from './guard/groups/groups.guard';
 import {G} from '@angular/cdk/keycodes';
 import {SchedulesGuard} from './guard/schedules/schedules.guard';
 import {NotFoundComponent} from './presentation/not-found/not-found.component';
+import {HomePageComponent} from "./presentation/home-page/home-page.component";
+import {HomePageCoreComponent} from "./core/home-page-core/home-page-core.component";
 
 const routes: Routes = [
+  {path: '', component: HomePageCoreComponent},
   {path: 'contacts', component: ContactsCoreComponent, canActivate: [ContactsGuard]},
   {path: 'faculties', component: FacultiesCoreComponent, canActivate: [FacultiesGuard]},
   {path: 'faculties/:faculty', component: GroupsCoreComponent, canActivate: [FacultiesGuard, GroupsGuard]},
