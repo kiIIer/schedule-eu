@@ -1,10 +1,7 @@
 import {Injectable} from '@angular/core';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
-import {fetch} from '@nrwl/angular';
 
 import * as ContactsActions from './contacts.actions';
-import * as ContactsFeature from './contacts.reducer';
-import * as FacultiesActions from '../faculties/faculties.actions';
 import {map, mergeMap} from 'rxjs/operators';
 import {ContactsService} from '../../services/contacts/contacts.service';
 import {environment} from '../../../environments/environment';
@@ -17,7 +14,7 @@ export class ContactsEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ContactsActions.initContacts),
-      mergeMap((action) => {
+      mergeMap(() => {
         return this.contacts.getContacts(this.contactsLink).pipe(
           map((response) =>
             response.ok

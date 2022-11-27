@@ -1,44 +1,37 @@
-.cards{
+.main-div {
   display: flex;
   justify-content: center;
   word-wrap: break-word;
 }
 
-
-.example-card {
+.home-card {
   width: 28em;
   margin: 1em;
   word-wrap: break-word;
 }
 
-hr{
+hr {
   border-color: #a8a8a8;
 }
 
-.phone-one{
+.phone-div {
   display: grid;
   justify-content: center;
   width: auto;
   word-wrap: break-word;
 }
 
-.phone{
+.phone-card {
   display: block;
   justify-content: center;
   width: auto;
 }
 
-.logo{
+.logo {
   background-color: white;
 }
 
-
-
-img{
-  /*background-color: white;*/
-}
-
-mat-card-header, mat-card-title{
+mat-card-header, mat-card-title {
   text-align: center;
   word-wrap: break-word;
 }

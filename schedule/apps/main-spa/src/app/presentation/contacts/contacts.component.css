@@ -1,41 +1,34 @@
-h1{
+h1 {
   text-align: center;
   margin-top: 10px;
 }
 
-.cards{
+.cards {
   display: grid;
   justify-content: center;
   word-wrap: break-word;
 }
 
-.inner{
+.inner-div {
   max-width: 400px;
 }
 
-.comp {
-
-  background: rgb(16, 56, 187);
-
-}
-
-.phone-one{
+.phone-cards {
   display: block;
   justify-content: center;
 }
 
-mat-card-content, mat-card-title{
+mat-card-content, mat-card-title {
   margin: 10px;
 }
 
-.phone{
-  background: rgb(16, 56, 187);
+.phone-card {
   display: block;
   justify-content: center;
   width: auto;
 }
 
-.example-card {
+.contact-card {
   width: auto;
   height: auto;
   margin-bottom: 12px;

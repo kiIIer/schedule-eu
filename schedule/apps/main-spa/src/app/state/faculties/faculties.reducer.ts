@@ -1,8 +1,8 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
+import {createReducer, on, Action} from '@ngrx/store';
 
 import * as FacultiesActions from './faculties.actions';
-import { FacultiesEntity } from './faculties.models';
+import {FacultiesEntity} from './faculties.models';
 
 export const FACULTIES_FEATURE_KEY = 'faculties';
 
@@ -32,18 +32,18 @@ const reducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(FacultiesActions.loadFacultiesSuccess, (state, { faculties }) =>
-    facultiesAdapter.setAll(faculties, { ...state, loaded: true })
+  on(FacultiesActions.loadFacultiesSuccess, (state, {faculties}) =>
+    facultiesAdapter.setAll(faculties, {...state, loaded: true}),
   ),
-  on(FacultiesActions.loadFacultiesFailure, (state, { error }) => ({
+  on(FacultiesActions.loadFacultiesFailure, (state, {error}) => ({
     ...state,
     error,
-  }))
+  })),
 );
 
 export function facultiesReducer(
   state: FacultiesState | undefined,
-  action: Action
+  action: Action,
 ) {
   return reducer(state, action);
 }

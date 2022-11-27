@@ -1,24 +1,23 @@
-
-.cards{
+.main-div {
   display: grid;
   justify-content: center;
 }
 
-.phone{
-  display: grid;
-  justify-content: center;
-  width: auto;
-  word-wrap: break-word;
-}
-
-.phone-one{
+.phone-card {
   display: grid;
   justify-content: center;
   width: auto;
   word-wrap: break-word;
 }
 
-.example-card{
+.phone-div {
+  display: grid;
+  justify-content: center;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.group-card {
   margin-top: 10px;
   display: grid;
   justify-content: center;
@@ -27,7 +26,7 @@
   word-wrap: break-word;
 }
 
-form{
+form {
   display: grid;
   width: auto;
   word-wrap: break-word;

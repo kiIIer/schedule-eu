@@ -4,10 +4,9 @@ import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from 
 import {asyncScheduler, catchError, filter, Observable, scheduled, switchMap, tap} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {getAllFaculties} from '../../state/faculties/faculties.selectors';
-import {initFaculties} from '../../state/faculties/faculties.actions';
-import {map, mergeMap, withLatestFrom} from 'rxjs/operators';
-import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selectors';
-import {selectRouteParam, selectRouteParams} from '../../state/router/app-router.selectors';
+import {map, withLatestFrom} from 'rxjs/operators';
+import {getSelectedGroups} from '../../state/groups/groups.selectors';
+import {selectRouteParam} from '../../state/router/app-router.selectors';
 import {loadGroups} from '../../state/groups/groups.actions';
 
 @Injectable({

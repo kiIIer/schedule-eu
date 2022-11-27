@@ -1,4 +1,4 @@
-import {createFeatureSelector, createSelector, select} from '@ngrx/store';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 import * as fromView from './view.reducer';
 
 export const selectViewState = createFeatureSelector<fromView.State>(

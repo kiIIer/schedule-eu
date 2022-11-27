@@ -1,20 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {Injectable} from '@angular/core';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
-import {fetch} from '@nrwl/angular';
 
 import * as SchedulesActions from './schedules.actions';
-import * as SchedulesFeature from './schedules.reducer';
-import * as GroupsActions from '../groups/groups.actions';
 import {map, mergeMap, withLatestFrom} from 'rxjs/operators';
-import {getFacultiesEntities} from '../faculties/faculties.selectors';
-import {GroupsEntity} from '../groups/groups.models';
 import {SheetWorkerService} from '../../services/sheet-worker/sheet-worker.service';
 import {Store} from '@ngrx/store';
 import {SchedulesEntity} from './schedules.models';
 import {getGroupsEntities} from '../groups/groups.selectors';
-import {SchedulesState} from './schedules.reducer';
-import {D} from '@angular/cdk/keycodes';
 import {asyncScheduler, catchError, scheduled} from 'rxjs';
 import {goToUrl} from '../router/app-router.actions';
 

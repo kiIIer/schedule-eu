@@ -1,34 +1,31 @@
-
-.cards{
+.main-div {
   display: grid;
   justify-content: center;
   word-wrap: break-word;
 }
 
-
-.example-card{
+.faculty-card {
   margin-top: 10px;
   width: auto;
   text-align: center;
   word-wrap: break-word;
 }
 
-
-.phone{
+.phone-card {
   display: grid;
   justify-content: center;
   width: auto;
   word-wrap: break-word;
 }
 
-.phone-one{
+.phone-div {
   display: grid;
   justify-content: center;
   width: auto;
   word-wrap: break-word;
 }
 
-form{
+form {
   display: grid;
   width: auto;
   word-wrap: break-word;

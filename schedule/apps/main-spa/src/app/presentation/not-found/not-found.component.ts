@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'schedule-not-found',
@@ -6,8 +6,5 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./not-found.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class NotFoundComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class NotFoundComponent {
 }

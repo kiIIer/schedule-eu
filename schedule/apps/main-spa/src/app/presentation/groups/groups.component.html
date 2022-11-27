@@ -1,11 +1,12 @@
-
-
-<div class="cards" [ngClass]="{'phone-one' : isHandset}">
-  <mat-card class="example-card" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+<div class="main-div"
+     [ngClass]="{'phone-div' : isHandset}">
+  <mat-card class="group-card"
+            [ngClass]="{'phone-card' : isHandset}">
     <mat-card-title>Which group do you want?</mat-card-title>
     <mat-card-content>
       <br>
-      <form [formGroup]="this.groupGroup">
+      <form [formGroup]="this.groupGroup"
+            (submit)="submit()">
         <mat-form-field appearance="fill">
           <mat-label>Group</mat-label>
           <input type="text"
@@ -13,17 +14,19 @@
                  matInput
                  formControlName="group"
                  [matAutocomplete]="auto">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-autocomplete autoActiveFirstOption
+                            #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async"
+                        [value]="option">
               {{option}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="submit()">Pick</button>
+        <button mat-raised-button
+                color="primary"
+                type="submit">Pick
+        </button>
       </form>
     </mat-card-content>
   </mat-card>
-
 </div>
-
-

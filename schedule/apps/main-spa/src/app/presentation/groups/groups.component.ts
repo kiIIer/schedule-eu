@@ -1,5 +1,4 @@
-/* eslint-disable */
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {GroupsEntity} from '../../state/groups/groups.models';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Observable, startWith} from 'rxjs';
@@ -42,13 +41,13 @@ export class GroupsComponent {
     const groupIds = this.groups!.map((group) => group.id);
     const id = this.groupGroup.value.group!;
 
-    console.log(groupIds);
     if (!groupIds.includes(id)) {
       return;
     }
 
     const group = this.groups?.filter((group) => group.id == id)[0];
 
+    // eslint-disable-next-line
     this.goEvent.emit('faculties/' + group!.facultyId + '/' + id);
   }
 }

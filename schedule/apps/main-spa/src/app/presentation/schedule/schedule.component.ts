@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {GroupsEntity} from '../../state/groups/groups.models';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {SchedulesEntity} from '../../state/schedules/schedules.models';
-import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
-import {type} from 'os';
-import {Dictionary} from '@ngrx/entity';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'schedule-schedule',
@@ -44,7 +41,6 @@ export class ScheduleComponent {
             return false;
           }
           return schedule.date.getTime() <= this.range.value.end!.getTime();
-
         },
       );
     }
