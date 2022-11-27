@@ -11,6 +11,9 @@
   word-wrap: break-word;
 }
 
+hr{
+  border-color: #a8a8a8;
+}
 
 .phone-one{
   display: grid;
@@ -29,15 +32,13 @@
   background-color: white;
 }
 
-.we{
 
-}
 
 img{
   /*background-color: white;*/
 }
 
-mat-card-header{
+mat-card-header, mat-card-title{
   text-align: center;
   word-wrap: break-word;
 }
