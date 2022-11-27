@@ -46,9 +46,10 @@
 
       <mat-card-content>
         <p>{{schedule.date.toLocaleTimeString()}}</p>
-        <p>{{schedule.tutor}}</p>
-        <p>{{schedule.type}}</p>
-        <p>{{schedule.subject}}</p>
+        <p>Tutor: {{schedule.tutor}}</p>
+        <p>Type: {{schedule.type}}</p>
+        <p>Subject: {{schedule.subject}}</p>
+        <p *ngIf="!schedule.link">Place: {{schedule.place}}</p>
       </mat-card-content>
       <mat-card-actions>
         <a *ngIf="schedule.link"
