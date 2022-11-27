@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'schedule-home-page',
@@ -8,7 +8,8 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class HomePageComponent {
   @Input() isHandset: boolean | null = null;
-  test(){
-    console.log(this.isHandset)
+
+  test() {
+    console.log(this.isHandset);
   }
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {selectIsHandset} from "../../state/view/view.selectors";
+import {Component, ViewEncapsulation} from '@angular/core';
+import {selectIsHandset} from '../../state/view/view.selectors';
 import {Store} from '@ngrx/store';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'schedule-home-page-core',

@@ -1,8 +1,8 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
+import {createReducer, on, Action} from '@ngrx/store';
 
 import * as SchedulesActions from './schedules.actions';
-import { SchedulesEntity } from './schedules.models';
+import {SchedulesEntity} from './schedules.models';
 
 export const SCHEDULES_FEATURE_KEY = 'schedules';
 
@@ -32,18 +32,18 @@ const reducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(SchedulesActions.loadSchedulesSuccess, (state, { schedules }) =>
-    schedulesAdapter.addMany(schedules, { ...state, loaded: true })
+  on(SchedulesActions.loadSchedulesSuccess, (state, {schedules}) =>
+    schedulesAdapter.addMany(schedules, {...state, loaded: true}),
   ),
-  on(SchedulesActions.loadSchedulesFailure, (state, { error }) => ({
+  on(SchedulesActions.loadSchedulesFailure, (state, {error}) => ({
     ...state,
     error,
-  }))
+  })),
 );
 
 export function schedulesReducer(
   state: SchedulesState | undefined,
-  action: Action
+  action: Action,
 ) {
   return reducer(state, action);
 }

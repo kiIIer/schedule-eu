@@ -22,7 +22,7 @@ export class ContactsGuard implements CanActivate {
         }
       }),
       filter((contacts) => contacts.length != 0),
-      map((contacts) => true),
+      map(() => true),
     );
   }
 

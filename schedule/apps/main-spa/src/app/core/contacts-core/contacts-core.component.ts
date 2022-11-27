@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable, tap} from 'rxjs';
+import {Observable} from 'rxjs';
 import {ContactsEntity} from '../../state/contacts/contacts.models';
-import {getAllContacts, getContactsEntities} from '../../state/contacts/contacts.selectors';
-import {selectIsHandset, selectViewState} from '../../state/view/view.selectors';
+import {getAllContacts} from '../../state/contacts/contacts.selectors';
+import {selectIsHandset} from '../../state/view/view.selectors';
 
 @Component({
   selector: 'schedule-contacts-core',

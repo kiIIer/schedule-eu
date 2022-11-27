@@ -1,10 +1,12 @@
-
-<div class="cards" [ngClass]="{'phone-one' : isHandset}">
-  <mat-card class="example-card" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+<div class="main-div"
+     [ngClass]="{'phone-div' : isHandset}">
+  <mat-card class="faculty-card"
+            [ngClass]="{'phone-card' : isHandset}">
     <mat-card-title>Which Faculty do you want?</mat-card-title>
     <mat-card-content>
       <br>
-      <form [formGroup]="this.facultyGroup" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+      <form [formGroup]="this.facultyGroup"
+            (submit)="submit()">
         <mat-form-field appearance="fill">
           <mat-label>Faculty</mat-label>
           <input type="text"
@@ -12,16 +14,19 @@
                  matInput
                  formControlName="faculty"
                  [matAutocomplete]="auto">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-autocomplete autoActiveFirstOption
+                            #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async"
+                        [value]="option">
               {{option}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="submit()">Pick</button>
+        <button mat-raised-button
+                color="primary"
+                type="submit">Pick
+        </button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
-
-

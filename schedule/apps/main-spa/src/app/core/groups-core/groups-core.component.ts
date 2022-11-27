@@ -1,11 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {getFacultyIds} from '../../state/faculties/faculties.selectors';
 import {goToUrl} from '../../state/router/app-router.actions';
-import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selectors';
+import {getSelectedGroups} from '../../state/groups/groups.selectors';
 import {GroupsEntity} from '../../state/groups/groups.models';
-import {selectIsHandset} from "../../state/view/view.selectors";
+import {selectIsHandset} from '../../state/view/view.selectors';
 
 @Component({
   selector: 'schedule-groups-core',

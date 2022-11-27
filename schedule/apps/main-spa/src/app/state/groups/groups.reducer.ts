@@ -1,8 +1,8 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
+import {createReducer, on, Action} from '@ngrx/store';
 
 import * as GroupsActions from './groups.actions';
-import { GroupsEntity } from './groups.models';
+import {GroupsEntity} from './groups.models';
 
 export const GROUPS_FEATURE_KEY = 'groups';
 
@@ -31,13 +31,13 @@ const reducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(GroupsActions.loadGroupsSuccess, (state, { groups }) =>
-    groupsAdapter.addMany(groups, { ...state, loaded: true })
+  on(GroupsActions.loadGroupsSuccess, (state, {groups}) =>
+    groupsAdapter.addMany(groups, {...state, loaded: true}),
   ),
-  on(GroupsActions.loadGroupsFailure, (state, { error }) => ({
+  on(GroupsActions.loadGroupsFailure, (state, {error}) => ({
     ...state,
     error,
-  }))
+  })),
 );
 
 export function groupsReducer(state: GroupsState | undefined, action: Action) {

@@ -1,22 +1,30 @@
-
-<div class="cards" [ngClass]="{'phone-one' : isHandset}">
-  <mat-card class="example-card" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+<div class="main-div"
+     [ngClass]="{'phone-div' : isHandset}">
+  <mat-card class="home-card"
+            [ngClass]="{'phone-card' : isHandset}">
     <mat-card-header>
       <mat-card-title>Доброго дня усім</mat-card-title>
       <mat-card-title>Вас вітає, Європейский Університет</mat-card-title>
     </mat-card-header>
-    <img mat-card-image class="logo" src="../../../assets/logo.svg" alt="">
+    <img mat-card-image
+         class="logo"
+         src="../../../assets/logo.svg"
+         alt="">
     <mat-card-content>
       <p>
-        Якши ви потравили до цього сайту, значить хочете дізнатия розклад, або контакти когось з викладачів або з деканату.
+        Якши ви потравили до цього сайту, значить хочете дізнатия розклад, або контакти когось з викладачів або з
+        деканату.
       </p>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="example-card" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+  <mat-card class="home-card"
+            [ngClass]="{'phone-card' : isHandset}">
     <mat-card-header>
     </mat-card-header>
-    <img mat-card-image src="../../../assets/1669407463383.png" alt="">
+    <img mat-card-image
+         src="../../../assets/1669407463383.png"
+         alt="hello">
     <mat-card-content>
       <p>
         Робили цей сайт 2 людини.
@@ -26,11 +34,9 @@
         <li>Mike - Back End</li>
       </ul>
       <hr>
-      <img mat-card-image src="../../../assets/1669556136266.png">
+      <img mat-card-image
+           src="../../../assets/1669556136266.png"
+           alt="sitting">
     </mat-card-content>
   </mat-card>
-
 </div>
-
-
-

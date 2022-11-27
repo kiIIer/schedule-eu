@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Observable, startWith} from 'rxjs';
 import {map} from 'rxjs/operators';
 

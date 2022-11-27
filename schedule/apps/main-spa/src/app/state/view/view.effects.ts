@@ -1,11 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-
-import { concatMap } from 'rxjs/operators';
-import { Observable, EMPTY } from 'rxjs';
-import * as ViewActions from './view.actions';
+import {Injectable} from '@angular/core';
+import {Actions} from '@ngrx/effects';
 
 @Injectable()
 export class ViewEffects {
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) {
+  }
 }

@@ -5,7 +5,6 @@ import {
   schedulesAdapter,
 } from './schedules.reducer';
 import {selectRouteParam} from '../router/app-router.selectors';
-import {getAllGroups} from '../groups/groups.selectors';
 
 // Lookup the 'Schedules' feature state managed by NgRx
 export const getSchedulesState = createFeatureSelector<SchedulesState>(

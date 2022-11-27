@@ -22,7 +22,7 @@ export class ContactsService {
     return this.http.get<SheetResponse<string[]>>(link, {observe: 'response', params: this.params}).pipe(
       map((response) => {
         if (response.ok) {
-          const entities = response.body!.values.map((row, i) => {
+          (response as unknown as HttpResponse<SheetResponse<ContactsEntity>>).body!.values = response.body!.values.map((row, i) => {
 
             const name: string = row.shift()!;
             const type: string = row.shift()!;
@@ -32,11 +32,10 @@ export class ContactsService {
               const detail: Details = {type: row[i], contact: row[i + 1]};
               details.push(detail);
             }
-            const entity: ContactsEntity = {id: i, name: name, type: type,details: details};
+            const entity: ContactsEntity = {id: i, name: name, type: type, details: details};
 
             return entity;
           });
-          (response as unknown as HttpResponse<SheetResponse<ContactsEntity>>).body!.values = entities;
         }
         return response as unknown as HttpResponse<SheetResponse<ContactsEntity>>;
       }),

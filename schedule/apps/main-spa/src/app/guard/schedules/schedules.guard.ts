@@ -1,17 +1,15 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {asyncScheduler, catchError, filter, Observable, scheduled, switchMap, tap} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {getAllFaculties} from '../../state/faculties/faculties.selectors';
-import {getAllGroups, getSelectedGroups} from '../../state/groups/groups.selectors';
+import {getSelectedGroups} from '../../state/groups/groups.selectors';
 import {map, withLatestFrom} from 'rxjs/operators';
 import {selectRouteParam} from '../../state/router/app-router.selectors';
-import {loadGroups} from '../../state/groups/groups.actions';
-import {getAllSchedules, getSelectedSchedules} from '../../state/schedules/schedules.selectors';
+import {getSelectedSchedules} from '../../state/schedules/schedules.selectors';
 import {loadSchedules} from '../../state/schedules/schedules.actions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SchedulesGuard implements CanActivate {
   constructor(private store: Store) {

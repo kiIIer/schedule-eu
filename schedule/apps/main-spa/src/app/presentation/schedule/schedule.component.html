@@ -1,17 +1,21 @@
-<!--<p-->
-<!--  *ngFor="let schedule of schedules">-->
-<!--  {{schedule | json}}-->
-<!--</p>-->
-<div class="schedule" [ngClass]="{'phone-one' : isHandset}">
-  <div [ngClass]="{'cards' : !isHandset}">
-    <mat-form-field appearance="fill" [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">
+<div class="schedule"
+     [ngClass]="{'phone-schedule' : isHandset}">
+  <div [ngClass]="{'comp-cards' : !isHandset}">
+    <mat-form-field appearance="fill"
+                    [ngClass]="{'phone' : isHandset}">
       <mat-label>Enter a date range</mat-label>
-      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-        <input matStartDate formControlName="start" placeholder="Start date">
-        <input matEndDate formControlName="end" placeholder="End date">
+      <mat-date-range-input [formGroup]="range"
+                            [rangePicker]="picker">
+        <input matStartDate
+               formControlName="start"
+               placeholder="Start date">
+        <input matEndDate
+               formControlName="end"
+               placeholder="End date">
       </mat-date-range-input>
       <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix
+                             [for]="picker"></mat-datepicker-toggle>
       <button mat-icon-button
               matSuffix
               type="submit"
@@ -24,12 +28,7 @@
       <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
     </mat-form-field>
 
-    <!--<p>Selected range: {{range.value | json}}</p>-->
-
-    <!--<button>apply</button>-->
-
-
-    <mat-card class="example-card"
+    <mat-card class="schedule-card"
               *ngFor="let schedule of selectedSchedules ? selectedSchedules : schedules"
               [ngClass]="{'comp' : !isHandset,
             'phone' : isHandset,
@@ -44,7 +43,6 @@
         <mat-card-title>{{schedule.date.toDateString()}}</mat-card-title>
         <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
-      <!--          [ngClass]="{'comp' : !isHandset, 'phone' : isHandset}">-->
 
       <mat-card-content>
         <p>{{schedule.date.toLocaleTimeString()}}</p>
@@ -53,14 +51,11 @@
         <p>{{schedule.subject}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <a *ngIf="schedule.link" [href]="schedule.link" mat-raised-button color="primary">{{schedule.place}}</a>
+        <a *ngIf="schedule.link"
+           [href]="schedule.link"
+           mat-raised-button
+           color="primary">{{schedule.place}}</a>
       </mat-card-actions>
     </mat-card>
   </div>
-
-
-
 </div>
-
-
-

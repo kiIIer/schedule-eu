@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
-import {fetch} from '@nrwl/angular';
 
 import * as FacultiesActions from './faculties.actions';
-import * as FacultiesFeature from './faculties.reducer';
 import {SheetWorkerService} from '../../services/sheet-worker/sheet-worker.service';
 import {FacultiesEntity} from './faculties.models';
 import {environment} from '../../../environments/environment';
@@ -16,7 +14,7 @@ export class FacultiesEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FacultiesActions.initFaculties),
-      mergeMap((action) => {
+      mergeMap(() => {
         return this.sheetWorker.getSheet(this.facultiesLink, 'A:B').pipe(
           map((response) =>
             response.ok

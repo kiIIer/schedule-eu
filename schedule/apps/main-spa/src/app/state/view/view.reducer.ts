@@ -1,6 +1,5 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import {createReducer, on} from '@ngrx/store';
 import * as ViewActions from './view.actions';
-import {state} from '@angular/animations';
 
 export const viewFeatureKey = 'view';
 
