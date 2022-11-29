@@ -6,14 +6,11 @@
                [mode]="isHandset ? 'over' : 'side'"
                [opened]="isHandset === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item
-         (click)="goEvent.emit('')">Home Page</a>
-      <a mat-list-item
-         (click)="goEvent.emit('/contacts')">Contacts</a>
-      <a mat-list-item
-         (click)="goEvent.emit('/faculties')">Select Schedule</a>
-    </mat-nav-list>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let a of links"
+                       [selected]="a.selected"
+                       (click)="goEvent.emit(a.link)">{{a.text}}</mat-list-option>
+    </mat-selection-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
