@@ -13,7 +13,8 @@ import {NotFoundComponent} from './presentation/not-found/not-found.component';
 import {HomePageCoreComponent} from './core/home-page-core/home-page-core.component';
 
 const routes: Routes = [
-  {path: '', component: HomePageCoreComponent},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'homepage', component: HomePageCoreComponent},
   {path: 'contacts', component: ContactsCoreComponent, canActivate: [ContactsGuard]},
   {path: 'faculties', component: FacultiesCoreComponent, canActivate: [FacultiesGuard]},
   {path: 'faculties/:faculty', component: GroupsCoreComponent, canActivate: [FacultiesGuard, GroupsGuard]},
